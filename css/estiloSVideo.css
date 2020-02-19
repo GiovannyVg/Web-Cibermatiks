@@ -1,0 +1,25 @@
+/* Podemos eliminar este estilo si no queremos que se adapte al ancho máximo */
+.delimitador{
+  	min-width: 100%;
+	min-height: 76%;
+    position: fixed;  /* Centramos el vídeo */
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	z-index: -1;
+}
+/* El contenedor con el padding-top crea el tamaño del vídeo */
+.contenedor{
+    height:0px;
+    width:100%; 
+   z-index: -1;
+}
+/* El iframe se adapta al tamaño del contenedor */
+.contenedor iframe{
+    
+    height:100%;
+    width:100%;
+    top:0px;
+    left:0px;
+	z-index: -1;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Productos</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+	<!---->
+
+	<link rel="stylesheet" href="css/estilosEncabezado.css">
+
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="css/estilosInicio.css">
+	<!---->
+	
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<scritp src="js/popper.min.js"></scritp>
+	<!---->
+	<script src="js/encabezado.js"></script>
+	<script type="text/javascript">
+		var infoActual;
+		var info = [
+			{
+				"modelo": "modelo1",
+				"marca": "marca1",
+				"descripcion": "descripcion1"
+			},
+			{
+				"modelo": "modelo2",
+				"marca": "marca2",
+				"descripcion": "descripcion2"
+			},
+			{
+				"modelo": "modelo3",
+				"marca": "marca3",
+				"descripcion": "descripcion3"
+
+			},
+			{
+				"modelo": "modelo4",
+				"marca": "marca4",
+				"descripcion": "descripcion4"
+
+			},
+			{
+				"modelo": "modelo5",
+				"marca": "marca5",
+				"descripcion": "descripcion5"
+
+			},
+			{
+				"modelo": "modelo6",
+				"marca": "marca6",
+				"descripcion": "descripcion6"
+
+			},
+			{
+				"modelo": "modelo7",
+				"marca": "marca7",
+				"descripcion": "descripcion7"
+
+			},
+			{
+				"modelo": "modelo8",
+				"marca": "marca8",
+				"descripcion": "descripcion8"
+
+			},
+			{
+				"modelo": "modelo9",
+				"marca": "marca9",
+				"descripcion": "descripcion9"
+			},
+			{
+				"modelo": "modelo10",
+				"marca": "marca10",
+				"descripcion": "descripcion10"
+			},
+		];		
+	</script>
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row ">
+			<header>
+				<h1>CiBerMatiks<i>Pensando No Simulando</i></h1>
+				<nav>
+					<a href="index.html">Inicio</a>
+					<a href="QuienesSomos.html">Quienes somos</a>
+					<a href="Productos.html">Productos</a>
+					<a href="Contacto.html">Contacto</a>
+				</nav>
+			</header>
+		</div>
+		<div class="row" id="estilo3">
+			<div class="col-xl-12 col-lg-12 col-md-12"  style="display: flex; justify-content: center;">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div onclick="muestraInfo(0);" class="swiper-slide" style="background-image:url(img/EPSON-L220.jpg)"></div>
+						<div onclick="muestraInfo(1);" class="swiper-slide" style="background-image:url(img/Hd720.jpg)"></div>
+						<div onclick="muestraInfo(2);" class="swiper-slide" style="background-image:url(img/TV-NVR104K_d07_2.jpg)"></div>
+						<div onclick="muestraInfo(3);" class="swiper-slide" style="background-image:url(img/balatrendnet.jpg)"></div>
+						<div onclick="muestraInfo(4);" class="swiper-slide" style="background-image:url(img/TV-IP762IC-6.jpg)"></div>
+						<div onclick="muestraInfo(5);" class="swiper-slide" style="background-image:url(img/VORAGO303.jpg)"></div>
+						<div onclick="muestraInfo(6);" class="swiper-slide" style="background-image:url(img/tecladobenq.jpg)"></div>
+						<div onclick="muestraInfo(7);" class="swiper-slide" style="background-image:url(img/baterias.jpg)"></div>
+						<div onclick="muestraInfo(8);" class="swiper-slide" style="background-image:url(img/Cableson.jpg)"></div>
+						<div onclick="muestraInfo(9);" class="swiper-slide" style="background-image:url(img/aoc.jpg)"></div>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="background-color: #34a5d1; height: 100%;"></div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul>
+						<li>marca: <p class="marcaElementoSeleccionado"></p></li>
+						<li>modelo: <p class="modeloElementoSeleccionado"></p></li>
+						<li>descripcion: <p class="descripcionElementoSeleccionado"></p></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!---->
+	<script src="js/swiper.min.js"></script>
+
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			effect: 'coverflow',
+			grabCursor: true,
+			centeredSlides: true,
+			slidesPerView: 'auto',
+			coverflowEffect: {
+				rotate: 50,
+				stretch: 0,
+				depth: 100,
+				modifier: 1,
+				slideShadows: true,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+			},
+		});
+
+		function muestraInfo(numPos){
+			infoActual = info[numPos];
+			var marcaElementoSeleccionado = document.getElementsByClassName("marcaElementoSeleccionado")[0];
+			var modeloElementoSeleccionado = document.getElementsByClassName("modeloElementoSeleccionado")[0];
+			var descripcionElementoSeleccionado = document.getElementsByClassName("descripcionElementoSeleccionado")[0];
+
+			marcaElementoSeleccionado.innerText = infoActual.marca;
+			modeloElementoSeleccionado.innerText = infoActual.modelo;
+			descripcionElementoSeleccionado.innerText = infoActual.descripcion;
+			
+			$('#exampleModal').modal('show');
+		}
+	</script>
+</body>
+
+</html>

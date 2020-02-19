@@ -1,0 +1,18 @@
+#estilo1{color: #5495f5;background:#759c80;}
+#estilo2{color:green;background:white;}
+#estilo3{color:black;background:#34a5d1;}
+
+main{
+	width: 40%;
+	background: rgba(0,0,0,0.5);
+	color: white;
+	padding: 20px;
+	margin: 13%;
+	
+}
+
+body
+{
+	display: flex;
+	justify-content: center;
+}
